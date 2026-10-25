@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Levantamiento de mobiliario | Comercial Trevi&ntilde;o</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F4F6;--panel:#FFFFFF;--ink:#18222E;--muted:#5C6B7A;--line:#E1E5EA;--frame:#DDA38C;--accent:#C8102E;--soft:#FBEDE8;--steel:#2F4A63;--ok:#1F7A4D}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 Barlow,system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Barlow Condensed",Barlow,system-ui,sans-serif;font-weight:700;margin:0}
+button,select{font:inherit;color:inherit}
+.wrap{max-width:1400px;margin:0 auto;padding:14px}
+.box{background:var(--panel);border:6px solid var(--frame);border-radius:4px;padding:14px;min-width:0}
+.top{display:grid;grid-template-columns:260px 1fr;gap:14px;margin-bottom:14px}
+.logo{display:flex;align-items:center;justify-content:center;min-height:110px}
+.logo img{max-width:100%;max-height:110px;object-fit:contain}
+.logo h1{font-size:30px;color:var(--accent);text-align:center;line-height:1}
+.filters{display:grid;grid-template-columns:2fr 2fr 1fr 1fr 1fr;gap:14px;align-items:end}
+.filters label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.filters select{padding:9px 10px;border:1px solid #C9CED4;border-radius:2px;background:var(--panel);min-height:42px;width:100%;font-size:16px}
+.tabs{display:flex;gap:6px;margin-bottom:10px}
+.tab{border:1px solid var(--frame);background:var(--panel);padding:8px 16px;border-radius:99px;cursor:pointer;font-weight:600}
+.tab[aria-selected="true"]{background:var(--frame);color:#fff}
+.mid{display:grid;grid-template-columns:1fr 360px;gap:14px;margin-bottom:14px}
+.tablewrap{overflow:auto;max-height:340px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font-weight:500;text-align:center;padding:8px 10px;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--panel);vertical-align:bottom}
+td{padding:8px 10px;border-bottom:2px solid var(--ink);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.l{text-align:left}
+tbody tr:nth-child(even) td{background:#F1F1F1}
+.names h3{font-family:Barlow,sans-serif;font-weight:600;font-size:15px;padding-bottom:6px;border-bottom:2px solid #2F6FDB;margin-bottom:4px}
+.nm{display:block;width:100%;text-align:left;background:none;border:0;padding:7px 8px;cursor:pointer;font-size:15px;border-radius:2px}
+.nm:hover{background:var(--soft)}
+.nm.on{background:#E9E9E9;font-weight:600}
+.nmrow{display:flex;align-items:center;gap:4px}
+.nmrow .nm{flex:1;min-width:0;overflow-wrap:anywhere}
+.dl{flex:0 0 auto;border:1px solid var(--frame);background:var(--panel);color:var(--accent);border-radius:4px;padding:5px 9px;cursor:pointer;font-weight:600;font-size:14px;line-height:1}
+.dl:hover{background:var(--soft)}
+.dl[disabled]{opacity:.5;cursor:wait}
+.dlbar{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.dlbar .dl{padding:8px 12px}
+.ok{border-left-color:var(--ok)}
+.strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x proximity}
+.fig{flex:0 0 auto;margin:0;text-align:center;scroll-snap-align:start}
+.fig a{display:block}
+.fig img{height:440px;width:auto;display:block;background:var(--line)}
+.fig figcaption{border-top:2px solid #2F6FDB;margin-top:8px;padding-top:4px;font-size:18px}
+.fig .cap2{font-size:12px;color:var(--muted);border:0;margin:0;padding:0}
+.noimg{height:440px;width:300px;display:flex;align-items:center;justify-content:center;background:var(--line);color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.kpi b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:36px;line-height:1.05;color:var(--accent)}
+.kpi span{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:14px}
+.box h2{font-size:20px;margin-bottom:8px}
+.bars{display:flex;flex-direction:column;gap:6px;max-height:330px;overflow:auto}
+.bar{display:grid;grid-template-columns:minmax(90px,38%) 1fr auto;gap:8px;align-items:center}
+.bk{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px}
+.bt{height:16px;background:var(--soft);border-radius:3px;overflow:hidden}
+.bf{display:block;height:100%;background:var(--frame)}
+.bv{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:17px;min-width:44px;text-align:right}
+.empty{color:var(--muted);padding:16px 4px}
+.notice{background:var(--panel);border-left:4px solid var(--accent);padding:12px 14px;margin-bottom:14px}
+.foot{color:var(--muted);font-size:13px;text-align:right;margin-top:8px}
+select:focus-visible,.nm:focus-visible,.tab:focus-visible,.fig a:focus-visible{outline:3px solid #2F6FDB;outline-offset:2px}
+.login{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:16px;z-index:10}
+.login[hidden]{display:none}
+.lbox{width:100%;max-width:380px;display:flex;flex-direction:column;gap:14px;text-align:center}
+.lbox img{max-width:240px;margin:4px auto 0}
+.lbox h2{font-size:24px}
+.lbox label{display:flex;flex-direction:column;gap:6px;text-align:left;font-weight:600}
+.lbox input[type=password]{padding:11px 12px;border:1px solid #C9CED4;border-radius:4px;font:inherit;font-size:17px}
+.lbox .rec{flex-direction:row;align-items:center;gap:8px;font-weight:500}
+.btnp{background:var(--accent);color:#fff;border:0;border-radius:4px;padding:12px;font-weight:600;font-size:16px;cursor:pointer}
+.btnp[disabled]{opacity:.6;cursor:wait}
+.lmsg{color:var(--accent);min-height:1.4em;font-weight:600}
+@media (max-width:900px){.top,.mid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.fig img,.noimg{height:320px}}
+</style>
+<script>
+window.addEventListener("error",function(e){var s=document.getElementById("status");if(s)s.innerHTML='<div class="notice"><b>Error:</b> '+String(e.message||e).replace(/[<]/g,"&lt;")+' (linea '+(e.lineno||"?")+', col '+(e.colno||"?")+')</div>';});
+</script>
+</head>
+<body>
+<div id="login" class="login" hidden>
+  <form id="fLogin" class="box lbox">
+    <img id="lLogo" src="" alt="Comercial Trevi&ntilde;o">
+    <h2>Levantamiento de mobiliario</h2>
+    <label>Clave de acceso<input id="inClave" type="password" autocomplete="current-password" required></label>
+    <label class="rec"><input type="checkbox" id="inRec"> Recordarme en este equipo</label>
+    <button type="submit" class="btnp" id="btnEntrar">Entrar</button>
+    <div id="lMsg" class="lmsg" role="alert"></div>
+  </form>
+</div>
+<div class="wrap" id="app" hidden>
+  <div id="status"></div>
+  <div class="top">
+    <div class="box logo" id="logo"></div>
+    <div class="box filters" id="filters"></div>
+  </div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tabM" aria-selected="true" type="button">Vista por mueble</button>
+    <button class="tab" role="tab" id="tabR" aria-selected="false" type="button">Resumen de tienda</button>
+  </div>
+  <div id="vM">
+    <div class="mid">
+      <div class="box tablewrap" id="tabla"></div>
+      <div class="box names" id="nombres"></div>
+    </div>
+    <div class="box"><div class="strip" id="strip"></div></div>
+  </div>
+  <div id="vR" hidden>
+    <div class="kpis" id="kpis"></div>
+    <div class="grid">
+      <section class="box"><h2>Tramos por categor&iacute;a</h2><div class="bars" id="chCat"></div></section>
+      <section class="box"><h2>Tramos por divisi&oacute;n</h2><div class="bars" id="chDiv"></div></section>
+      <section class="box"><h2>Metros lineales por tipo de mueble</h2><div class="bars" id="chTipo"></div></section>
+      <section class="box"><h2>Muebles por pasillo</h2><div class="bars" id="chPas"></div></section>
+    </div>
+  </div>
+  <div class="foot"><span id="upd">Cargando datos&hellip;</span> &nbsp; <button class="tab" id="btnRef" type="button">Actualizar</button> <button class="tab" id="btnSalir" type="button">Salir</button></div>
+</div>
+
+<script>
+(function(){
+/* ===== Configuracion ===== */
+var API_URL="https://script.google.com/macros/s/AKfycbzxrI3fqbW3yiRhAhLMO546T1q5dT5kKqHx5P0wU6T2k5fuyc8zEb1SpgDGSXC2Ppzn/exec";   // la liga /exec del proyecto Dashboard Trevino
+var LOGO_URL="data:image/png;base64,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";
+var TITULO="Levantamiento de mobiliario";
+
+var D={tramos:[],muebles:[]};
+var S={tienda:"",categoria:"",pasillo:"",cara:"",mueble:""};
+var vista="M";
+var SIN_CAT="Sin categor\u00eda", SIN_DIV="Sin divisi\u00f3n";
+
+function $(s){return document.querySelector(s);}
+function $all(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+var ESC={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return ESC[c];});}
+function numv(v){var n=parseFloat(String(v).replace(",","."));return isNaN(n)?0:n;}
+function fmt(n,d){return Number(n||0).toLocaleString("es-MX",{minimumFractionDigits:d||0,maximumFractionDigits:d||0});}
+function uniq(list){var o={},r=[];list.forEach(function(v){v=String(v==null?"":v);if(v!==""&&!o[v]){o[v]=1;r.push(v);}});return r;}
+function sortNat(a,b){var x=parseFloat(a),y=parseFloat(b);if(!isNaN(x)&&!isNaN(y)&&String(x)===String(a)&&String(y)===String(b))return x-y;return String(a).localeCompare(String(b));}
+function catDe(t){return t.categoria||SIN_CAT;}
+function divDe(t){return t.division||SIN_DIV;}
+function agrupar(list,keyFn,valFn){var o={};list.forEach(function(x){var k=keyFn(x);o[k]=(o[k]||0)+(valFn?valFn(x):1);});return Object.keys(o).map(function(k){return {k:k,v:o[k]};}).sort(function(a,b){return b.v-a.v;});}
+
+/* ---------- conexion y clave ---------- */
+var CLAVE_KEY="trevino_clave";
+function leerClave(){try{return sessionStorage.getItem(CLAVE_KEY)||localStorage.getItem(CLAVE_KEY)||"";}catch(e){return "";}}
+function guardarClave(c,rec){try{sessionStorage.setItem(CLAVE_KEY,c);if(rec)localStorage.setItem(CLAVE_KEY,c);else localStorage.removeItem(CLAVE_KEY);}catch(e){}}
+function borrarClave(){try{sessionStorage.removeItem(CLAVE_KEY);localStorage.removeItem(CLAVE_KEY);}catch(e){}}
+var clave=leerClave();
+function mostrarLogin(msg){
+  $("#app").hidden=true;$("#login").hidden=false;$("#lMsg").textContent=msg||"";
+  $("#btnEntrar").disabled=false;$("#btnEntrar").textContent="Entrar";
+  setTimeout(function(){try{$("#inClave").focus();}catch(e){}},50);
+}
+function api(action,args){
+  return fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:action,clave:clave,args:args||[]})})
+    .then(function(r){if(!r.ok)throw new Error("Error de conexi\u00f3n ("+r.status+")");return r.text();})
+    .then(function(t){
+      var j;try{j=JSON.parse(t);}catch(e){throw new Error("El servidor no respondi\u00f3 bien. Revisa que el Dashboard est\u00e9 publicado con acceso: Cualquier usuario.");}
+      if(!j.ok){
+        if(j.error==="CLAVE_INVALIDA"){borrarClave();clave="";mostrarLogin("La clave no es correcta.");}
+        else if(j.error==="BLOQUEADO"){mostrarLogin("Demasiados intentos fallidos. Espera 10 minutos.");}
+        else{throw new Error(j.error);}
+        var er=new Error(j.error);er.code=j.error;throw er;
+      }
+      return j.data;
+    });
+}
+function callado(e){return e&&(e.code==="CLAVE_INVALIDA"||e.code==="BLOQUEADO");}
+function pintarLogo(){
+  $("#lLogo").src=LOGO_URL;
+  $("#logo").innerHTML=LOGO_URL?'<img src="'+esc(LOGO_URL)+'" alt="Logo" referrerpolicy="no-referrer">':'<h1>'+esc(TITULO)+'</h1>';
+}
+
+function cargar(){
+  $("#upd").textContent="Cargando datos...";
+  api("getDashboard").then(function(r){
+    D=r;$("#status").innerHTML="";
+    var d=new Date(r.actualizado);
+    $("#upd").textContent="Datos al "+d.toLocaleDateString("es-MX")+" "+d.toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"});
+    try{render();}catch(e){$("#status").innerHTML='<div class="notice"><b>Error al dibujar:</b> '+esc(e.message||e)+'</div>';}
+  }).catch(function(e){if(callado(e))return;$("#status").innerHTML='<div class="notice">No se pudieron cargar los datos: '+esc(e&&e.message||e)+'</div>';});
+}
+
+/* ---------- filtros en cascada ---------- */
+function cascada(){
+  var catsPor={};
+  D.tramos.forEach(function(t){(catsPor[t.audit]=catsPor[t.audit]||{})[catDe(t)]=1;});
+  var ms=D.muebles.slice(), o={};
+  o.tiendas=uniq(ms.map(function(m){return m.tienda;})).sort();
+  if(o.tiendas.indexOf(S.tienda)<0) S.tienda=o.tiendas[0]||"";
+  ms=ms.filter(function(m){return m.tienda===S.tienda;});
+  var cats={};ms.forEach(function(m){for(var c in (catsPor[m.audit]||{}))cats[c]=1;});
+  o.cats=Object.keys(cats).sort();
+  if(S.categoria&&o.cats.indexOf(S.categoria)<0) S.categoria="";
+  if(S.categoria) ms=ms.filter(function(m){return catsPor[m.audit]&&catsPor[m.audit][S.categoria];});
+  function paso(campo,lista){
+    o[lista]=uniq(ms.map(function(m){return m[campo];})).sort(sortNat);
+    if(o[lista].indexOf(S[campo])<0) S[campo]=o[lista][0]||"";
+    ms=ms.filter(function(m){return String(m[campo])===S[campo];});
+  }
+  paso("pasillo","pasillos");paso("cara","caras");paso("mueble","numeros");
+  o.sel=ms[0]||null;
+  return o;
+}
+function selectHtml(k,label,vals,todas){
+  return '<label title="'+esc(label)+'">'+esc(label)+'<select data-k="'+k+'">'+(todas?'<option value="">Todas</option>':'')+
+    vals.map(function(v){return '<option value="'+esc(v)+'"'+(S[k]===v?' selected':'')+'>'+esc(v)+'</option>';}).join("")+'</select></label>';
+}
+
+/* ---------- render ---------- */
+function render(){
+  var o=cascada();
+  $("#filters").innerHTML=selectHtml("tienda","TIENDA",o.tiendas,false)+selectHtml("categoria","CATEGOR\u00cdA",o.cats,true)+
+    selectHtml("pasillo","PASILLO",o.pasillos,false)+selectHtml("cara","CARA",o.caras,false)+selectHtml("mueble","MUEBLE",o.numeros,false);
+  $all("select[data-k]").forEach(function(s){s.onchange=function(){S[s.getAttribute("data-k")]=s.value;render();};});
+  $("#tabM").setAttribute("aria-selected",vista==="M");$("#tabR").setAttribute("aria-selected",vista==="R");
+  $("#vM").hidden=vista!=="M";$("#vR").hidden=vista!=="R";
+  if(vista==="M") vistaMueble(o.sel); else vistaResumen();
+}
+function vistaMueble(m){
+  if(!m){$("#tabla").innerHTML='<div class="empty">No hay muebles con estos filtros.</div>';$("#nombres").innerHTML="";$("#strip").innerHTML="";return;}
+  var todos=D.tramos.filter(function(t){return t.audit===m.audit;}).sort(function(a,b){return numv(a.tramo)-numv(b.tramo);});
+  var ts=todos.filter(function(t){return !S.categoria||catDe(t)===S.categoria;});
+  var h='<table><thead><tr><th>TRAMO</th><th>CATEGOR&Iacute;A</th><th>UPC</th><th>ALTO BASE</th><th>ALTO MUEBLE</th><th>ANCHO MUEBLE</th><th>PROFUNDO MUEBLE</th><th>TOTAL TRAMOS</th><th>NIVELES CHAROLA</th><th>NIVELES GANCHOS</th><th>ALTURA CHAROLA</th><th>PROFUNDIDAD GANCHO</th></tr></thead><tbody>';
+  if(!ts.length) h+='<tr><td class="l" colspan="12">Este mueble a&uacute;n no tiene tramos capturados.</td></tr>';
+  ts.forEach(function(t){
+    var v=function(a,b){return (a===""||a==null)?(b==null?"":b):a;};
+    h+='<tr><td class="l">'+esc(t.tramo)+'</td><td class="l">'+esc(catDe(t))+'</td><td class="l">'+esc(t.upc)+'</td>'+
+      '<td>'+esc(v(t.altoBase,m.altoBase))+'</td><td>'+esc(v(t.alto,m.alto))+'</td><td>'+esc(v(t.ancho,m.ancho))+'</td><td>'+esc(v(t.profundo,m.profundo))+'</td>'+
+      '<td>'+esc(m.totalTramos)+'</td><td>'+esc(v(t.charola,m.niveles))+'</td><td>'+esc(v(t.ganchos,m.ganchos))+'</td>'+
+      '<td>'+esc(v(t.altCharola,m.altCharola))+'</td><td>'+esc(v(t.profGancho,m.profGancho))+'</td></tr>';
+  });
+  $("#tabla").innerHTML=h+'</tbody></table>';
+
+  var orden=uniq(todos.map(catDe));
+  var ids=uniq(todos.map(function(t){return String(t.auditId||"").trim();}).filter(function(a){return a&&a!=="undefined";}));
+  var nb='<h3>NOMBRE MUEBLE</h3>'+
+    '<div class="dlbar"><button type="button" class="dl" id="dlMueble"'+(ids.length?'':' disabled')+'>&#11015; Mueble (.psa/.zip)</button>'+
+    '<button type="button" class="dl" id="dlTienda">&#11015; Toda la tienda (.zip)</button></div>'+
+    '<div class="dlbar" id="extras"></div>';
+  nb+=orden.length?orden.map(function(c,i){
+    var tr=null;todos.forEach(function(t){if(!tr&&catDe(t)===c)tr=t;});
+    var id=(tr&&tr.auditId&&tr.auditId!=="undefined")?String(tr.auditId).trim():"";
+    var nombre=id||(m.audit+"_S"+(i+1)+"_"+c);
+    return '<div class="nmrow"><button type="button" class="nm'+(S.categoria===c?' on':'')+'" data-c="'+esc(c)+'">'+esc(nombre.toUpperCase())+'</button>'+
+      (id?'<button type="button" class="dl dl1" data-id="'+esc(id)+'" title="Descargar '+esc(id)+'.psa" aria-label="Descargar '+esc(id)+'.psa">&#11015;</button>':'')+'</div>';
+  }).join(""):'<div class="empty">'+esc(m.audit)+'</div>';
+  $("#nombres").innerHTML=nb;
+  $all(".nm").forEach(function(b){b.onclick=function(){var c=b.getAttribute("data-c");S.categoria=(S.categoria===c)?"":c;render();};});
+  $all(".dl1").forEach(function(b){b.onclick=function(){descargar(b,m.tienda,[b.getAttribute("data-id")],"");};});
+  $("#dlMueble").onclick=function(){descargar(this,m.tienda,ids,m.audit);};
+  $("#dlTienda").onclick=function(){descargar(this,m.tienda,null,m.tienda);};
+  pintarExtras(m.tienda);
+
+  $("#strip").innerHTML=ts.length?ts.map(function(t){
+    var img=t.fileId?'<a href="https://drive.google.com/file/d/'+esc(t.fileId)+'/view" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" alt="Tramo '+esc(t.tramo)+'" src="https://lh3.googleusercontent.com/d/'+esc(t.fileId)+'=h900"></a>':'<div class="noimg">Sin foto</div>';
+    return '<figure class="fig">'+img+'<figcaption>'+esc(t.tramo)+'<div class="cap2">'+esc(catDe(t))+'</div></figcaption></figure>';
+  }).join(""):'<div class="empty">Sin fotos para mostrar.</div>';
+  $("#strip").scrollLeft=0;
+}
+/* ---------- descarga de PSA ---------- */
+function aviso(html,ok){$("#status").innerHTML='<div class="notice'+(ok?' ok':'')+'">'+html+'</div>';}
+function guardarArchivo(r){
+  var bin=atob(r.b64),u=new Uint8Array(bin.length);
+  for(var i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
+  var url=URL.createObjectURL(new Blob([u],{type:r.tipo}));
+  var a=document.createElement("a");a.href=url;a.download=r.nombre;document.body.appendChild(a);a.click();
+  setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},4000);
+}
+function descargar(btn,tienda,ids,nombreZip){
+  var txt=btn.innerHTML;btn.disabled=true;btn.innerHTML="Preparando&hellip;";
+  aviso("Preparando descarga&hellip;",true);
+  api("descargarPsa",[tienda,ids,nombreZip]).then(function(r){
+    btn.disabled=false;btn.innerHTML=txt;
+    try{guardarArchivo(r);aviso("Descargado: <b>"+esc(r.nombre)+"</b>"+(r.n>1?" ("+r.n+" archivos)":""),true);}
+    catch(e){aviso("No se pudo descargar: "+esc(e.message||e));}
+  }).catch(function(e){
+    btn.disabled=false;btn.innerHTML=txt;if(!callado(e))aviso(esc(e&&e.message||e));
+  });
+}
+/* Excel u otros archivos que pongas en Drive: PSA MUEBLES/<TIENDA>/ */
+var EXTRAS={};
+function pintarExtras(tienda){
+  var el=$("#extras");if(!el)return;
+  function dibuja(lista){
+    if($("#extras")!==el)return;
+    el.innerHTML=lista.map(function(x){return '<button type="button" class="dl dlx" data-id="'+esc(x.id)+'" title="Descargar '+esc(x.nombre)+'">&#11015; '+esc(x.nombre)+'</button>';}).join("");
+    $all(".dlx",el).forEach(function(b){b.onclick=function(){descargarOtro(b,tienda,b.getAttribute("data-id"));};});
+  }
+  if(EXTRAS[tienda]){dibuja(EXTRAS[tienda]);return;}
+  api("listarExtras",[tienda]).then(function(l){EXTRAS[tienda]=l||[];dibuja(EXTRAS[tienda]);}).catch(function(){});
+}
+function descargarOtro(btn,tienda,id){
+  var txt=btn.innerHTML;btn.disabled=true;btn.innerHTML="Preparando&hellip;";
+  aviso("Preparando descarga&hellip;",true);
+  api("descargarExtra",[tienda,id]).then(function(r){
+    btn.disabled=false;btn.innerHTML=txt;
+    try{guardarArchivo(r);aviso("Descargado: <b>"+esc(r.nombre)+"</b>",true);}catch(e){aviso("No se pudo descargar: "+esc(e.message||e));}
+  }).catch(function(e){btn.disabled=false;btn.innerHTML=txt;if(!callado(e))aviso(esc(e&&e.message||e));});
+}
+function barras(sel,items,fv){
+  var el=$(sel);
+  if(!items.length){el.innerHTML='<div class="empty">Sin datos.</div>';return;}
+  var max=0;items.forEach(function(i){if(i.v>max)max=i.v;});
+  el.innerHTML=items.map(function(i){return '<div class="bar" title="'+esc(i.label||i.k)+'"><span class="bk">'+esc(i.label||i.k)+'</span><span class="bt"><span class="bf" style="width:'+(max?i.v/max*100:0)+'%"></span></span><span class="bv">'+fv(i.v)+'</span></div>';}).join("");
+}
+function vistaResumen(){
+  var ms=D.muebles.filter(function(m){return m.tienda===S.tienda;});
+  var aud={};ms.forEach(function(m){aud[m.audit]=1;});
+  var ts=D.tramos.filter(function(t){return aud[t.audit]&&(!S.categoria||catDe(t)===S.categoria);});
+  if(S.categoria){var con={};ts.forEach(function(t){con[t.audit]=1;});ms=ms.filter(function(m){return con[m.audit];});}
+  var porM={};ts.forEach(function(t){porM[t.audit]=(porM[t.audit]||0)+1;});
+  var metros=0,decl=0,capt=0;
+  ms.forEach(function(m){metros+=numv(m.ancho)/100;var tot=numv(m.totalTramos);if(tot){decl+=tot;capt+=Math.min(porM[m.audit]||0,tot);}});
+  var k=[[decl?fmt(capt/decl*100)+"%":"-","Avance de captura"],[fmt(uniq(ms.map(function(m){return m.pasillo;})).length),"Pasillos"],[fmt(ms.length),"Muebles"],[fmt(ts.length),"Tramos"],[fmt(metros,1)+" m","Metros lineales"],[fmt(ts.filter(function(t){return t.fileId;}).length),"Fotos"]];
+  $("#kpis").innerHTML=k.map(function(x){return '<div class="box kpi"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>';}).join("");
+  barras("#chCat",agrupar(ts,catDe).slice(0,30),function(v){return fmt(v);});
+  barras("#chDiv",agrupar(ts,divDe),function(v){return fmt(v);});
+  barras("#chTipo",agrupar(ms,function(m){return m.tipo||"Sin tipo";},function(m){return numv(m.ancho)/100;}),function(v){return fmt(v,1)+" m";});
+  barras("#chPas",agrupar(ms,function(m){return String(m.pasillo);}).sort(function(a,b){return sortNat(a.k,b.k);}).map(function(x){return {k:x.k,v:x.v,label:"Pasillo "+x.k};}),function(v){return fmt(v);});
+}
+
+$("#tabM").onclick=function(){vista="M";render();};
+$("#tabR").onclick=function(){vista="R";render();};
+$("#btnRef").onclick=function(){EXTRAS={};cargar();};
+$("#btnSalir").onclick=function(){borrarClave();clave="";D={tramos:[],muebles:[]};EXTRAS={};$("#inClave").value="";mostrarLogin("");};
+$("#fLogin").onsubmit=function(ev){
+  ev.preventDefault();
+  var c=$("#inClave").value.trim();if(!c)return;
+  clave=c;$("#btnEntrar").disabled=true;$("#btnEntrar").textContent="Entrando\u2026";$("#lMsg").textContent="";
+  api("login").then(function(){
+    guardarClave(c,$("#inRec").checked);
+    $("#login").hidden=true;$("#app").hidden=false;cargar();
+  }).catch(function(e){if(!callado(e))mostrarLogin(e.message||String(e));});
+};
+pintarLogo();
+if(API_URL.indexOf("PEGA_AQUI")===0){mostrarLogin("Falta poner la liga del Dashboard (API_URL) en index.html.");$("#btnEntrar").disabled=true;}
+else if(clave){$("#login").hidden=true;$("#app").hidden=false;cargar();}
+else mostrarLogin("");
+})();
+</script>
+</body>
+</html>
